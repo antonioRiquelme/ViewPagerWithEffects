@@ -1,0 +1,13 @@
+<resources>
+    <!-- margins -->
+    <dimen name="margin_smallest">8dp</dimen>
+    <dimen name="margin_smaller">16dp</dimen>
+    <dimen name="margin_small">24dp</dimen>
+    <dimen name="margin_medium">32dp</dimen>
+    <dimen name="margin_big">40dp</dimen>
+    <dimen name="margin_bigger">48dp</dimen>
+    <dimen name="margin_biggest">56dp</dimen>
+    <dimen name="margin_giant">64dp</dimen>
+    <dimen name="margin_more_giant">110dp</dimen>
+    <!-- end margins -->
+</resources>

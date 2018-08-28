@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Color palette -->
+    <color name="primaryColor">#f03658</color>
+    <color name="primaryDarkColor">#b0003a</color>
+    <color name="primaryLightColor">#f05983</color>
+    <color name="secondaryColor">#222b44</color>
+    <color name="secondaryColor_60">#99222b44</color>
+    <color name="secondaryDarkColor">#252a41</color>
+    <color name="secondaryLightColor">#575e72</color>
+    <color name="red">#de4d4d</color>
+    <color name="orange">#ff9500</color>
+    <color name="yellow">#fcdb2c</color>
+    <color name="green">#7dad03</color>
+    <color name="indigo">#006a4e</color>
+    <color name="blue">#0095d8</color>
+    <color name="purple">#5856d6</color>
+    <color name="pink">#ff2d55</color>
+    <color name="grey_100">#212121</color>
+    <color name="grey_90">#424242</color>
+    <color name="grey_80">#616161</color>
+    <color name="grey_70">#757575</color>
+    <color name="warm_grey">#8e8e8e</color>
+    <color name="grey_50">#bdbdbd</color>
+    <color name="grey_40">#e0e0e0</color>
+    <color name="grey_30">#eeeeee</color>
+    <color name="grey_20">#f5f5f5</color>
+    <color name="grey_10">#fafafa</color>
+    <color name="bodyGray">#3b3b3b</color>
+    <color name="white">#ffffff</color>
+    <!-- End Color palette -->
+
+    <color name="transaction_title">#121212</color>
+
+    <color name="primary_color">@color/secondaryColor</color>
+    <color name="primary_light_color">@color/secondaryLightColor</color>
+    <color name="primary_dark_color">@color/secondaryDarkColor</color>
+    <color name="secondary_color">@color/primaryColor</color>
+    <color name="secondary_light_color">@color/primaryLightColor</color>
+    <color name="secondary_dark_color">@color/primaryDarkColor</color>
+
+    <color name="colorPrimary">@color/primary_color</color>
+    <color name="colorPrimaryDark">@color/primary_dark_color</color>
+    <color name="colorAccent">@color/secondary_color</color>
+
+    <color name="banking_authentication_confirmmail_mail">@color/bodyGray</color>
+    <color name="banking_home_text">@color/bodyGray</color>
+
+    <color name="device_binding_phone">@color/green</color>
+    <color name="statusBarColor">@color/grey_40</color>
+
+    <color name="overview_p2p_arrow_transfer_direction">@color/blue</color>
+    <color name="transactions_list_background">@color/blue</color>
+
+    <color name="amount_selector_color">@color/secondary_color</color>
+
+    <color name="logoutIconColor">@color/white</color>
+
+    <color name="amount_selector_disabled_color">#78f05983</color>
+    <color name="bgFragment1">#9d17ce81</color>
+    <color name="bgFragment2">#eeeeee</color>
+    <color name="bgFragment3">#9d955cef</color>
+</resources>
