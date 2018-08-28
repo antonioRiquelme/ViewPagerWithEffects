@@ -7,7 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +22,11 @@ import java.util.List;
 public class Fragment1 extends Fragment {
 
   public interface OnScrollRecyclerViewListener {
-    void onScroll(boolean up);
+    void onScroll(int dy);
   }
 
+
+  private LinearLayoutManager layoutManager;
   @Nullable
   private OnScrollRecyclerViewListener mListener;
 
@@ -43,7 +47,9 @@ public class Fragment1 extends Fragment {
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
 
+    layoutManager = new LinearLayoutManager(getContext());
     RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+    recyclerView.setLayoutManager(layoutManager);
     Fragment1Adapter adapter = new Fragment1Adapter(getItems());
 
     recyclerView.setAdapter(adapter);
@@ -74,12 +80,10 @@ public class Fragment1 extends Fragment {
       @Override
       public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
         super.onScrolled(recyclerView, dx, dy);
-        if (mListener != null && scrolling) {
-          if (dy > 0) {
-            mListener.onScroll(false);
-          } else if (dy < 0) {
-            mListener.onScroll(true);
-          }
+        if (mListener != null
+            && scrolling
+            && (dy > 0 || layoutManager.findFirstVisibleItemPosition() == 0)) {
+          mListener.onScroll(dy);
         }
       }
     });
