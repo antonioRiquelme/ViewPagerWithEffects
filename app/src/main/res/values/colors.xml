@@ -58,7 +58,7 @@
     <color name="logoutIconColor">@color/white</color>
 
     <color name="amount_selector_disabled_color">#78f05983</color>
-    <color name="bgFragment1">#9d17ce81</color>
+    <color name="bgFragment1">#fd9c00</color>
     <color name="bgFragment2">#eeeeee</color>
     <color name="bgFragment3">#9d955cef</color>
 </resources>

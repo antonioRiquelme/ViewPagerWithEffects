@@ -11,7 +11,7 @@ import android.util.Log;
 
 import com.example.aorl.viewpagercolortransition.fragments.Fragment1;
 
-public class MainActivity extends AppCompatActivity implements Fragment1.OnScrollRecyclerViewListener {
+public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, Fragment1.OnScrollRecyclerViewListener {
 
   private ViewPager viewPager;
   private PagerAdapter adapter;
@@ -50,29 +50,15 @@ public class MainActivity extends AppCompatActivity implements Fragment1.OnScrol
   }
 
   private void setListeners() {
-    viewPager.addOnPageChangeListener(new PagerListener(
+    PagerListener listener = new PagerListener(
         this,
         getWindow(),
         getSupportActionBar(),
         findViewById(R.id.main_container),
-        adapter
-    ));
-    viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-      @Override
-      public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        if (position == 0 && positionOffset == 0) {
-          viewPager.setPadding(paddingList, paddingList, paddingList, paddingList);
-        } else {
-          viewPager.setPadding(marginSides, marginSides, marginSides, marginSides);
-        }
-      }
-
-      @Override
-      public void onPageSelected(int position) {}
-
-      @Override
-      public void onPageScrollStateChanged(int state) {}
-    });
+        adapter.getCount());
+    viewPager.addOnPageChangeListener(listener);
+    viewPager.setPageTransformer(false, new PageTransformer(this));
+    viewPager.addOnPageChangeListener(this);
   }
 
   @Override
@@ -85,4 +71,19 @@ public class MainActivity extends AppCompatActivity implements Fragment1.OnScrol
       viewPager.setPadding(paddingList, paddingList, paddingList, paddingList);
     }
   }
+
+  @Override
+  public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    if (position == 0 && positionOffset == 0) {
+      viewPager.setPadding(paddingList, paddingList, paddingList, paddingList);
+    } else {
+      viewPager.setPadding(marginSides, marginSides, marginSides, marginSides);
+    }
+  }
+
+  @Override
+  public void onPageSelected(int position) {}
+
+  @Override
+  public void onPageScrollStateChanged(int state) {}
 }
