@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
   private void setViewPagerPaddings(int padding) {
     viewPager.setPadding(padding, 0, padding, padding*2);
+    viewPager.setPageTransformer(true, new PageTransformer());
   }
 
   private void loadToolbar() {

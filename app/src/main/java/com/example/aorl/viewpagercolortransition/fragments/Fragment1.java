@@ -47,7 +47,7 @@ public class Fragment1 extends Fragment {
     super.onViewCreated(view, savedInstanceState);
 
     CardView cardView = view.findViewById(R.id.cardView);
-    float radius = getResources().getDimension(R.dimen.margin_small);
+    CardView overLapCardView = view.findViewById(R.id.overlap_card);
 
     LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
 
@@ -56,7 +56,13 @@ public class Fragment1 extends Fragment {
 
     Fragment1Adapter adapter = new Fragment1Adapter(getItems());
     recyclerView.setAdapter(adapter);
-    recyclerView.addOnScrollListener(new ListScrollListener(mListener, layoutManager, cardView, radius));
+    recyclerView.addOnScrollListener(
+        new ListScrollListener(
+            mListener,
+            layoutManager,
+            cardView,
+            overLapCardView,
+            getResources().getDimension(R.dimen.margin_small)));
   }
 
   private List<String> getItems() {
