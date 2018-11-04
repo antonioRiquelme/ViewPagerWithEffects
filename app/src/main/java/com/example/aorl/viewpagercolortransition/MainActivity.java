@@ -1,13 +1,12 @@
 package com.example.aorl.viewpagercolortransition;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.view.View;
 
 import com.example.aorl.viewpagercolortransition.fragments.Fragment1;
 
@@ -31,17 +30,24 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
   private void initUI() {
     loadToolbar();
 
-    adapter = new PagerAdapter(getSupportFragmentManager(), this);
+    adapter = new PagerAdapter(getSupportFragmentManager());
     viewPager = findViewById(R.id.viewPager);
     viewPager.setAdapter(adapter);
 
-    marginSides = (int) getResources().getDimension(R.dimen.margin_small);
+    marginSides = (int) getResources().getDimension(R.dimen.margin_smaller);
     paddingList = marginSides;
     viewPager.setClipToPadding(false);
-    viewPager.setPadding(marginSides, marginSides, marginSides, marginSides);
+    setViewPagerPaddings(marginSides);
 
-    int margin = (int) getResources().getDimension(R.dimen.margin_smaller);
+    int margin = (int) getResources().getDimension(R.dimen.margin_smallest);
     viewPager.setPageMargin(margin);
+
+    TabLayout tabLayout = findViewById(R.id.tab_layout);
+    tabLayout.setupWithViewPager(viewPager, true);
+  }
+
+  private void setViewPagerPaddings(int padding) {
+    viewPager.setPadding(padding, 0, padding, padding*2);
   }
 
   private void loadToolbar() {
@@ -50,14 +56,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
   }
 
   private void setListeners() {
-    PagerListener listener = new PagerListener(
-        this,
-        getWindow(),
-        getSupportActionBar(),
-        findViewById(R.id.main_container),
-        adapter.getCount());
-    viewPager.addOnPageChangeListener(listener);
-    viewPager.setPageTransformer(false, new PageTransformer(this));
     viewPager.addOnPageChangeListener(this);
   }
 
@@ -68,16 +66,16 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
       padding = Math.max(padding, 0);
       padding = Math.min(padding, marginSides);
       paddingList = padding;
-      viewPager.setPadding(paddingList, paddingList, paddingList, paddingList);
+      setViewPagerPaddings(paddingList);
     }
   }
 
   @Override
   public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
     if (position == 0 && positionOffset == 0) {
-      viewPager.setPadding(paddingList, paddingList, paddingList, paddingList);
+      setViewPagerPaddings(paddingList);
     } else {
-      viewPager.setPadding(marginSides, marginSides, marginSides, marginSides);
+      setViewPagerPaddings(marginSides);
     }
   }
 
