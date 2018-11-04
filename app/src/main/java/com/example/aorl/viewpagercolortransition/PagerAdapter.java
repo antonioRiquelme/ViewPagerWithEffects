@@ -18,14 +18,12 @@ import com.example.aorl.viewpagercolortransition.fragments.Fragment3;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PagerAdapter extends FragmentStatePagerAdapter implements ViewPager.PageTransformer {
+public class PagerAdapter extends FragmentStatePagerAdapter {
 
   private final List<Fragment> pages;
-  private Context context;
 
-  public PagerAdapter(FragmentManager fm, Context context) {
+  public PagerAdapter(FragmentManager fm) {
     super(fm);
-    this.context = context;
     pages = new ArrayList<>(3);
     pages.add(Fragment1.newInstance());
     pages.add(Fragment2.newInstance());
@@ -40,18 +38,5 @@ public class PagerAdapter extends FragmentStatePagerAdapter implements ViewPager
   @Override
   public int getCount() {
     return pages.size();
-  }
-
-  @Override
-  public void transformPage(@NonNull View page, float position) {
-    Log.e("PageTransformer", ">>>>>>>>> position: " + position);
-
-    Integer[] colors = new Integer[]{
-        ContextCompat.getColor(context,R.color.white),
-        page.getSolidColor()
-    };
-
-   // page.setBackgroundColor(Math.abs(position) > 0.5 ? colors[0]: colors[1]);
-   // page.setBackgroundColor(colors[0]);
   }
 }
