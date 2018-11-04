@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
   private void setListeners() {
     viewPager.addOnPageChangeListener(this);
+    viewPager.setPageTransformer(false, new PageTransformer());
   }
 
   @Override
@@ -85,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
   private void setViewPagerPadding(int padding) {
     viewPager.setPadding(padding, 0, padding, padding*2);
-    viewPager.setPageTransformer(true, new PageTransformer());
   }
 
   private void setAnimViewPagerPadding(int from, int to) {
