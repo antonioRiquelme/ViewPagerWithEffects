@@ -1,19 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="55dp">
 
-    <TextView
-        android:id="@+id/row_item"
-        android:textSize="22sp"
-        android:paddingStart="@dimen/margin_medium"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin_small"
+    android:orientation="vertical">
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_gravity="center_vertical"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_smaller"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/transaction_list_item_image"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_weight="0.1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher_foreground" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/TransactionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Transaction title" />
+
+            <TextView
+                android:id="@+id/cardType"
+                style="@style/Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="Card Type" />
+
+            <TextView
+                android:id="@+id/subtitle"
+                style="@style/Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                tools:text="Transaction subtitle" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/amount"
+            style="@style/Headline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_weight="0.4"
+            android:gravity="end"
+            tools:text="+ 30000.43 €" />
+
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/grey_40" />
+        android:background="@color/grey_30" />
 
-</FrameLayout>
+</LinearLayout>

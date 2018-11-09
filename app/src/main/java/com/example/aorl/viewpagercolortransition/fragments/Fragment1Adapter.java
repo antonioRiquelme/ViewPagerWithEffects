@@ -44,7 +44,7 @@ public class Fragment1Adapter extends RecyclerView.Adapter<Fragment1Adapter.View
 
     ViewHolder(View itemView) {
       super(itemView);
-      item = itemView.findViewById(R.id.row_item);
+      item = itemView.findViewById(R.id.title);
     }
   }
 }

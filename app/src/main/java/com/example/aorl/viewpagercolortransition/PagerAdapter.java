@@ -27,7 +27,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     pages = new ArrayList<>(3);
     pages.add(Fragment1.newInstance());
     pages.add(Fragment2.newInstance());
-    pages.add(Fragment3.newInstance());
   }
 
   @Override

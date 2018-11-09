@@ -18,8 +18,37 @@
             android:id="@+id/main_app_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
-            app:titleTextColor="@color/white" />
+            app:title=" "
+            app:titleTextColor="@color/white">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingEnd="@dimen/margin_smaller">
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_foreground"
+                    android:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/profile_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:gravity="center"
+                    android:textColor="@color/secondary_color"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@color/white"
+                    android:text="UB" />
+            </FrameLayout>
+        </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
+
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"
