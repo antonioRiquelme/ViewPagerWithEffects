@@ -27,7 +27,8 @@ public class Fragment1 extends Fragment {
     void onScroll(int dy);
   }
 
-  @Nullable private OnScrollRecyclerViewListener mListener;
+  @Nullable
+  private OnScrollRecyclerViewListener mListener;
 
   public static Fragment1 newInstance() {
     Bundle args = new Bundle();
@@ -46,8 +47,7 @@ public class Fragment1 extends Fragment {
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
 
-    CardView cardView = view.findViewById(R.id.cardView);
-    CardView overLapCardView = view.findViewById(R.id.overlap_card);
+    CardView cardView = view.findViewById(R.id.container_fragment_1);
 
     LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
 
@@ -61,7 +61,6 @@ public class Fragment1 extends Fragment {
             mListener,
             layoutManager,
             cardView,
-            overLapCardView,
             getResources().getDimension(R.dimen.margin_small)));
   }
 

@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
   private void setListeners() {
     viewPager.addOnPageChangeListener(this);
-    viewPager.setPageTransformer(false, new PageTransformer());
+    viewPager.setPageTransformer(false, new PageTransformer(this));
   }
 
   @Override

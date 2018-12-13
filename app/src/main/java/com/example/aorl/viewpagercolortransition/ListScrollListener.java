@@ -12,7 +12,6 @@ public class ListScrollListener extends RecyclerView.OnScrollListener {
   @Nullable private final Fragment1.OnScrollRecyclerViewListener mListener;
   private final LinearLayoutManager layoutManager;
   private final CardView cardView;
-  private final CardView overLapCardView;
   private final float radius;
   private boolean scrolling;
 
@@ -20,12 +19,10 @@ public class ListScrollListener extends RecyclerView.OnScrollListener {
       @Nullable Fragment1.OnScrollRecyclerViewListener mListener,
       LinearLayoutManager layoutManager,
       CardView cardView,
-      CardView overLapCardView,
       float radius) {
     this.mListener = mListener;
     this.layoutManager = layoutManager;
     this.cardView = cardView;
-    this.overLapCardView = overLapCardView;
     this.radius = radius;
   }
 
@@ -59,7 +56,6 @@ public class ListScrollListener extends RecyclerView.OnScrollListener {
       radius = Math.max(radius, 0);
       radius = Math.min(radius, this.radius);
       cardView.setRadius(radius);
-      overLapCardView.setRadius(radius);
     }
   }
 
