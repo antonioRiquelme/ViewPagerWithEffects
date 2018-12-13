@@ -46,6 +46,14 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     TabLayout tabLayout = findViewById(R.id.tab_layout);
     tabLayout.setupWithViewPager(viewPager, true);
+
+    PagerListener listener = new PagerListener(
+        this,
+        getWindow(),
+        getSupportActionBar(),
+        findViewById(R.id.main_container),
+        adapter.getCount());
+    viewPager.addOnPageChangeListener(listener);
   }
 
   private void loadToolbar() {

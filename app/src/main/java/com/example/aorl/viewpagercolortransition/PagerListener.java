@@ -37,9 +37,9 @@ public class PagerListener implements ViewPager.OnPageChangeListener {
     this.window = window;
 
     bgColors = new Integer[]{
-        ContextCompat.getColor(context, R.color.transactions_list_background),
-        ContextCompat.getColor(context, R.color.secondary_color),
-        ContextCompat.getColor(context, R.color.orange)
+        ContextCompat.getColor(context, R.color.bgFragment1),
+        ContextCompat.getColor(context, R.color.bgFragment2),
+        ContextCompat.getColor(context, R.color.bgFragment3)
     };
   }
 
