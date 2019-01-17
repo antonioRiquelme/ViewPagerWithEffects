@@ -17,7 +17,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
   public static final int ANIM_DURATION = 100;
   private ViewPager viewPager;
   private int marginSides;
-  private int paddingList;
+  private int paddingList1;
+  private int paddingList2;
+  private int paddingList3;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     viewPager.setAdapter(adapter);
 
     marginSides = (int) getResources().getDimension(R.dimen.margin_smaller);
-    paddingList = marginSides;
+    paddingList1 = marginSides;
+    paddingList2 = marginSides;
+    paddingList3 = marginSides;
     viewPager.setClipToPadding(false);
     setViewPagerPadding(marginSides);
 
@@ -54,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         findViewById(R.id.main_container),
         adapter.getCount());
     viewPager.addOnPageChangeListener(listener);
+
   }
 
   private void loadToolbar() {
@@ -69,18 +74,34 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
   @Override
   public void onScroll(int dy) {
     if (viewPager.getCurrentItem() == 0) {
-      int padding = paddingList - dy;
+      int padding = paddingList1 - dy;
       padding = Math.max(padding, 0);
       padding = Math.min(padding, marginSides);
-      paddingList = padding;
-      setViewPagerPadding(paddingList);
+      paddingList1 = padding;
+      setViewPagerPadding(paddingList1);
+    } else if (viewPager.getCurrentItem() == 1) {
+      int padding = paddingList2 - dy;
+      padding = Math.max(padding, 0);
+      padding = Math.min(padding, marginSides);
+      paddingList2 = padding;
+      setViewPagerPadding(paddingList2);
+    } else if (viewPager.getCurrentItem() == 2) {
+      int padding = paddingList3 - dy;
+      padding = Math.max(padding, 0);
+      padding = Math.min(padding, marginSides);
+      paddingList3 = padding;
+      setViewPagerPadding(paddingList3);
     }
   }
 
   @Override
   public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
     if (position == 0 && positionOffset == 0) {
-      setAnimViewPagerPadding(marginSides, paddingList);
+      setAnimViewPagerPadding(marginSides, paddingList1);
+    } else if (position == 1 && positionOffset == 0) {
+      setAnimViewPagerPadding(marginSides, paddingList2);
+    } else if (position == 2 && positionOffset == 0) {
+      setAnimViewPagerPadding(marginSides, paddingList3);
     } else {
       setViewPagerPadding(marginSides);
     }
